@@ -1,0 +1,267 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Spotify brand colors as design tokens */
+:root {
+  --spotify-green: #1db954;
+  --spotify-green-light: #1ed760;
+  --spotify-black: #191414;
+  --spotify-dark: #121212;
+  --spotify-gray: #535353;
+  --spotify-light-gray: #b3b3b3;
+
+  --background: #121212;
+  --foreground: #ffffff;
+  --card: #181818;
+  --card-foreground: #ffffff;
+  --popover: #282828;
+  --popover-foreground: #ffffff;
+  --primary: #1db954;
+  --primary-foreground: #000000;
+  --secondary: #282828;
+  --secondary-foreground: #ffffff;
+  --muted: #282828;
+  --muted-foreground: #b3b3b3;
+  --accent: #1ed760;
+  --accent-foreground: #000000;
+  --destructive: #e91429;
+  --destructive-foreground: #ffffff;
+  --border: #282828;
+  --input: #282828;
+  --ring: #1db954;
+  --chart-1: #1db954;
+  --chart-2: #1ed760;
+  --chart-3: #535353;
+  --chart-4: #b3b3b3;
+  --chart-5: #ffffff;
+  --radius: 500px; /* Spotify uses pill-shaped buttons */
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1db954;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #282828;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #282828;
+  --sidebar-ring: #1db954;
+
+  /* Game-specific colors */
+  --correct: #1db954;
+  --wrong: #e91429;
+  --pending: #535353;
+  --highlight: #1ed760;
+}
+
+/* Dark mode same as light (Spotify is always dark) */
+.dark {
+  --background: #121212;
+  --foreground: #ffffff;
+  --card: #181818;
+  --card-foreground: #ffffff;
+  --popover: #282828;
+  --popover-foreground: #ffffff;
+  --primary: #1db954;
+  --primary-foreground: #000000;
+  --secondary: #282828;
+  --secondary-foreground: #ffffff;
+  --muted: #282828;
+  --muted-foreground: #b3b3b3;
+  --accent: #1ed760;
+  --accent-foreground: #000000;
+  --destructive: #e91429;
+  --destructive-foreground: #ffffff;
+  --border: #282828;
+  --input: #282828;
+  --ring: #1db954;
+  --chart-1: #1db954;
+  --chart-2: #1ed760;
+  --chart-3: #535353;
+  --chart-4: #b3b3b3;
+  --chart-5: #ffffff;
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #1db954;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #282828;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #282828;
+  --sidebar-ring: #1db954;
+}
+
+@theme inline {
+  /* Spotify uses Circular font, fallback to system */
+  --font-sans: "Circular", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-mono: "Circular Mono", "SF Mono", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 500px; /* Pill buttons */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Custom Spotify colors for Tailwind */
+  --color-spotify-green: #1db954;
+  --color-spotify-green-light: #1ed760;
+  --color-correct: #1db954;
+  --color-wrong: #e91429;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Typing animation */
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s infinite;
+}
+
+/* Music equalizer animation - more musical! */
+@keyframes equalizer {
+  0%,
+  100% {
+    height: 10%;
+  }
+  10% {
+    height: 30%;
+  }
+  20% {
+    height: 60%;
+  }
+  30% {
+    height: 40%;
+  }
+  40% {
+    height: 80%;
+  }
+  50% {
+    height: 100%;
+  }
+  60% {
+    height: 60%;
+  }
+  70% {
+    height: 80%;
+  }
+  80% {
+    height: 40%;
+  }
+  90% {
+    height: 20%;
+  }
+}
+
+.equalizer-bar {
+  animation: equalizer 1.2s ease-in-out infinite;
+}
+
+.equalizer-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+.equalizer-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.equalizer-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.equalizer-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.equalizer-bar:nth-child(5) {
+  animation-delay: 0.15s;
+}
+.equalizer-bar:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.equalizer-bar:nth-child(7) {
+  animation-delay: 0.05s;
+}
+
+/* Spotify-style button hover */
+.spotify-btn {
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.spotify-btn:hover {
+  transform: scale(1.04);
+  background-color: #1ed760;
+}
+.spotify-btn:active {
+  transform: scale(0.98);
+}
+
+/* Audio wave - alternate style */
+@keyframes wave-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.audio-wave span {
+  animation: wave-bounce 0.8s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.audio-wave span:nth-child(1) {
+  animation-delay: 0s;
+}
+.audio-wave span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.audio-wave span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.audio-wave span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.audio-wave span:nth-child(5) {
+  animation-delay: 0.4s;
+}
