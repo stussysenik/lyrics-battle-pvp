@@ -1,19 +1,25 @@
-<div align="center">
+# lyrics-battle-pvp
 
-# Lyrics Battle Pvp
-
-
+Lyrics Battle Pvp
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Active-green?style=flat-square)
 
-</div>
+## About
+
+📦 **Project** built with React / Next.js / RedwoodJS.
+
+<!-- 
+  Add a demo GIF here:
+  ![Demo](demo.gif)
+-->
+
+## Run
+
+```bash
+npm install
+npm run dev
+```
 
 ---
 
-## Quick Start
-
-```bash
-git clone https://github.com/stussysenik/lyrics-battle-pvp.git
-cd lyrics-battle-pvp
-```
+*Built by [@stussysenik](https://github.com/stussysenik)*
